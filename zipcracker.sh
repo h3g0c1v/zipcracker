@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Author: h3g0c1v
+#This script is a simple automator to decrypt .zip files using the john tool.
+#./zipcracker zip_filename passwords_dictionary
+
+
 # Colours
 greenColour="\e[0;32m\033[1m"
 endColour="\033[0m\e[0m"
