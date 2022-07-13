@@ -46,12 +46,6 @@ while getopts ":h" arg; do
 	esac
 done
 
-# Installing zip2john to generate the hash
-if [ $state -ne 0 ]; then
-	echo -e "${greenColour}[*] Installing zip2john to generate the hash\n${endColour}"
-	sudo apt install john
-fi
-
 #Checks
 if [ "$*" == "" ]; then
 	helpPanel
@@ -70,6 +64,12 @@ fi
 if [ ! -f "$2" ]; then
 	echo -e "\n${redColour}[!] Dictionary ($2) not found${endColour}"
 	helpPanel;
+fi
+
+# Installing zip2john to generate the hash
+if [ $state -ne 0 ]; then
+	echo -e "${greenColour}[*] Installing zip2john to generate the hash\n${endColour}"
+	sudo apt install john
 fi
 
 #Script functionality
