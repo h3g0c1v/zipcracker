@@ -27,7 +27,7 @@ function ctrl_c(){
 	exit 1
 }
 
-
+#Function to help
 function helpPanel(){
      echo -e "\n${redColour}[!] Usage: ./zipcracker.sh filename passwords_dictionary${endColour}"
      for i in $(seq 1 80); do echo -ne "${redColour}-"; done; echo -ne "${endColour}"
@@ -37,6 +37,7 @@ function helpPanel(){
      exit 1
 }
 
+#Parameter -h
 while getopts ":h" arg; do
     case $arg in
         h)
@@ -45,12 +46,13 @@ while getopts ":h" arg; do
 	esac
 done
 
+# Installing zip2john to generate the hash
 if [ $state -ne 0 ]; then
 	echo -e "${greenColour}[*] Installing zip2john to generate the hash\n${endColour}"
-	# Installing zip2john to generate the hash
 	sudo apt install john
 fi
 
+#Checks
 if [ "$*" == "" ]; then
 	helpPanel
 fi
@@ -70,7 +72,7 @@ if [ ! -f "$2" ]; then
 	helpPanel;
 fi
 
-
+#Script functionality
 if [ -f "$1" ]; then
 
 	echo -e "\n${greenColour}[*] Generating the hash for the compressed file ... \n${endColour}"
